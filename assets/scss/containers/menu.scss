@@ -1,0 +1,157 @@
+$menu-main-color: white;
+$menu-secondary-sec: rgb(220, 220, 220);
+$menu-secondary-color: rgb(63, 62, 62);
+
+.block#menu {
+
+    
+    height: 60px;
+    width: 100%;
+    background: $menu-secondary-color;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+
+    color: $menu-main-color;
+    $margin-logo: 10px;
+    .wrapper {
+        height: 100%;
+        width: 100%;
+        // background: blue;
+
+        display: flex;
+        flex-direction: row;
+    }
+    .logo-part {
+        height: 100%;
+        // background: chartreuse;
+
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        img.logo-img {
+            width: 70px;
+            height: 30px;
+        }
+        .logo-text {
+            font-size: 30px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+            text-transform: capitalize;
+        }
+    }
+    ul.menu-nav {
+        height: 100%;
+        width: 100%;
+        margin-inline: $margin-logo + 10px;
+        // background: blueviolet;
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-inline: 2px;
+            height: 100%;
+            width: 100%;
+
+            text-transform: uppercase;
+            color: $menu-main-color;
+            transition: 1s ease;
+            &:last-child:hover {
+                background:$menu-secondary-color;
+            }
+            .sign-up {
+                align-self: center;
+                text-transform: capitalize;
+                transition: 1s ease;
+                &:hover {
+                    background: $menu-main-color;
+                    color:$menu-secondary-color;
+                    border: 1px solid $menu-secondary-color;
+                }
+            }
+        }
+        li:hover {
+            background: $menu-secondary-sec;
+            color: $menu-secondary-color;
+        }
+
+    }
+}
+
+
+$navicon-width: 60px;
+$navicon-height: 10px;
+// Change to watch in slow motion
+$duration: .5s;
+
+$size : 100%;
+$toggled-size : .75;
+
+$bg : #274380;
+$nav-bg  : #000;
+$content-bg : rgb(0, 0, 0);
+
+.navicon-button {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+  opacity: .8;
+
+  .navicon:before, .navicon:after {
+    transition: $duration/2;
+  }
+
+  &:hover {
+    transition: $duration;
+    opacity: 1;
+
+    .navicon:before, .navicon:after {
+      transition: $duration/2;
+    }
+
+    .navicon:before { top: .825rem; }
+    .navicon:after { top: -.825rem; }
+  }
+}
+
+.navicon {
+  position: relative;
+  width: 2.5em;
+  height: .3125rem;
+  background: $content-bg;
+  transition: $duration;
+  border-radius: 2.5rem;
+
+  &:before, &:after {
+    display: block;
+    content: "";
+    height: .3125rem;
+    width: 2.5rem;
+    background: $content-bg;
+    position: absolute;
+    z-index: -1;
+    transition: $duration $duration/2;
+    border-radius: 1rem;
+  }
+}
+
+@media (max-width: $middle) {
+    .block#menu {
+        ul.menu-nav {
+            li {
+                &:last-child {
+                    margin-inline: 20px;
+                }
+            }
+        }
+    }
+}
